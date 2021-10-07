@@ -238,6 +238,14 @@ dependencies {
     // sample mnemonic plugin
     androidTestImplementation(libs.zcashwalletplgn)
     androidTestImplementation(libs.bip39)
+    
+    if (project.property("IS_USE_TEST_ORCHESTRATOR").toString().toBoolean()) {
+        androidTestUtil(libs.androidx.testOrchestrator) {
+            artifact {
+                type = "apk"
+            }
+        }
+    }
 }
 
 tasks {
