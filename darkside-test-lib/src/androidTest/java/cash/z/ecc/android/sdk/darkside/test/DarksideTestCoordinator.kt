@@ -16,9 +16,9 @@ import kotlinx.coroutines.withTimeout
 import org.junit.Assert
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
+import kotlin.random.Random
 import kotlin.time.Duration
 import kotlin.time.ExperimentalTime
-import kotlin.random.Random
 
 class DarksideTestCoordinator(val wallet: TestWallet = newDarksideTestWallet()) {
 
@@ -227,7 +227,7 @@ class DarksideTestCoordinator(val wallet: TestWallet = newDarksideTestWallet()) 
          */
         fun resetBlocks(
             blocksUrl: String,
-            startHeight: Int = DEFAULT_START_HEIGHT,
+            startHeight: Int = DarksideNetwork.DEFAULT_START_HEIGHT,
             tipHeight: Int = startHeight + 100
         ): DarksideChainMaker = apply {
             darkside
@@ -268,9 +268,9 @@ class DarksideTestCoordinator(val wallet: TestWallet = newDarksideTestWallet()) 
          */
         fun makeSimpleChain() {
             darkside
-                .reset(DEFAULT_START_HEIGHT)
+                .reset(DarksideNetwork.DEFAULT_START_HEIGHT)
                 .stageBlocks("https://raw.githubusercontent.com/zcash-hackworks/darksidewalletd-test-data/master/tx-incoming/blocks.txt")
-            applyTipHeight(DEFAULT_START_HEIGHT + 100)
+            applyTipHeight(DarksideNetwork.DEFAULT_START_HEIGHT + 100)
         }
 
         fun advanceBy(numEmptyBlocks: Int) {
@@ -288,11 +288,6 @@ class DarksideTestCoordinator(val wallet: TestWallet = newDarksideTestWallet()) 
     }
 
     companion object {
-        /**
-         * This is a special localhost value on the Android emulator, which allows it to contact
-         * the localhost of the computer running the emulator.
-         */
-        const val COMPUTER_LOCALHOST = "10.0.2.2"
 
         // Block URLS
         private const val beforeReorg =
@@ -301,7 +296,7 @@ class DarksideTestCoordinator(val wallet: TestWallet = newDarksideTestWallet()) 
             "https://raw.githubusercontent.com/zcash-hackworks/darksidewalletd-test-data/master/basic-reorg/after-small-reorg.txt"
         private const val largeReorg =
             "https://raw.githubusercontent.com/zcash-hackworks/darksidewalletd-test-data/master/basic-reorg/after-large-reorg.txt"
-        private const val DEFAULT_START_HEIGHT = 663150
+
         private const val DEFAULT_SEED_PHRASE =
             "still champion voice habit trend flight survey between bitter process artefact blind carbon truly provide dizzy crush flush breeze blouse charge solid fish spread"
 
@@ -311,17 +306,35 @@ class DarksideTestCoordinator(val wallet: TestWallet = newDarksideTestWallet()) 
         fun newDarksideTestWallet(
             alias: String = "DarksideTestCoordinator",
             seedPhrase: String = DEFAULT_SEED_PHRASE,
-            startHeight: Int = DEFAULT_START_HEIGHT,
-            host: String = COMPUTER_LOCALHOST,
-            network: ZcashNetwork = ZcashNetwork.Mainnet,
-            port: Int = network.defaultPort,
+            startHeight: Int = DarksideNetwork.DEFAULT_START_HEIGHT,
+            network: ZcashNetwork = DarksideNetwork(saplingActivationHeight = startHeight),
         ) = TestWallet(
             seedPhrase,
             alias,
             network,
-            host,
+            network.defaultHost,
             startHeight = startHeight,
-            port = port
+            port = network.defaultPort
         )
+    }
+}
+
+private data class DarksideNetwork(
+    override val id: Int = 1,
+    override val networkName: String = "mainnet",
+    override val saplingActivationHeight: Int = DEFAULT_START_HEIGHT,
+    override val defaultHost: String = COMPUTER_LOCALHOST,
+    override val defaultPort: Int = DEFAULT_PORT
+) : ZcashNetwork {
+
+    companion object {
+        /**
+         * This is a special localhost value on the Android emulator, which allows it to contact
+         * the localhost of the computer running the emulator.
+         */
+        private const val COMPUTER_LOCALHOST = "10.0.2.2"
+
+        internal const val DEFAULT_START_HEIGHT = 663_150
+        private const val DEFAULT_PORT = 9067
     }
 }
