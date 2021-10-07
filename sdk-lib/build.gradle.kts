@@ -100,6 +100,15 @@ android {
     lint {
         baseline(File("lint-baseline.xml"))
     }
+
+    // Placing this in the build-conventions does not appear to work
+    testOptions {
+        animationsDisabled = true
+
+        if (project.property("IS_USE_TEST_ORCHESTRATOR").toString().toBoolean()) {
+            execution = "ANDROIDX_TEST_ORCHESTRATOR"
+        }
+    }
 }
 
 mavenPublish {

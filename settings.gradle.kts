@@ -142,7 +142,8 @@ dependencyResolutionManagement {
                     "androidx-espresso-core",
                     "androidx-espresso-intents",
                     "androidx-test-junit",
-                    "androidx-test-core"
+                    "androidx-test-core",
+                    "androidx-test-runner"
                 )
             )
 

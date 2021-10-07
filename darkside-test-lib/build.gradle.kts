@@ -22,6 +22,15 @@ android {
             listOf("META-INF/AL2.0", "META-INF/LGPL2.1",)
         )
     }
+
+    // Placing this in the build-conventions does not appear to work
+    testOptions {
+        animationsDisabled = true
+
+        if (project.property("IS_USE_TEST_ORCHESTRATOR").toString().toBoolean()) {
+            execution = "ANDROIDX_TEST_ORCHESTRATOR"
+        }
+    }
 }
 
 dependencies {
