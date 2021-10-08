@@ -24,6 +24,7 @@ open class DarksideTestPrerequisites {
                 if (null == Build.DEVICE
                     || "generic" == Build.DEVICE //$NON-NLS
                     || "generic_x86" == Build.DEVICE //$NON-NLS
+                    || "generic_x86_arm" == Build.DEVICE //$NON-NLS
                     || Build.DEVICE.contains("emulator", ignoreCase = true) //$NON-NLS
                 ) {
                     return true
