@@ -3,6 +3,7 @@ package cash.z.ecc.android.sdk.darkside
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import cash.z.ecc.android.sdk.darkside.fixture.DarksideFixture
 import cash.z.ecc.android.sdk.darkside.test.DarksideTestPrerequisites
+import cash.z.ecc.android.sdk.type.NetworkType
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Test
@@ -14,7 +15,7 @@ class RestoreTest : DarksideTestPrerequisites() {
     @Test
     fun tenPlusBlock() = runBlockingTest {
         val coordinator = DarksideFixture.newDarksideTestCoordinator()
-        coordinator.reset(saplingActivationHeight = 663150, branchId = "2bb40e60", chainName = "main")
+        coordinator.reset(saplingActivationHeight = 663150, branchId = "2bb40e60", chainName = NetworkType.Mainnet.networkName)
         coordinator.stageEmptyBlocks(663150,250)
         coordinator.chainMaker.apply {
             stageTransaction(DarksideFixture.tx663174)

@@ -44,7 +44,7 @@ class DarksideApi(
     fun reset(
         saplingActivationHeight: Int = 419200,
         branchId: String = "e9ff75a6", // Canopy,
-        chainName: String = "darkside${NetworkType.Mainnet.networkName}"
+        chainName: String = NetworkType.Mainnet.networkName
     ) = apply {
         twig("resetting darksidewalletd with saplingActivation=$saplingActivationHeight branchId=$branchId chainName=$chainName")
         Darkside.DarksideMetaState.newBuilder()
