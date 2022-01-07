@@ -73,9 +73,10 @@ interface UnifiedAddress {
     val rawTransparentAddress: String
 }
 
-enum class ZcashNetwork(val id: Int, val networkName: String, val saplingActivationHeight: Int, val defaultHost: String, val defaultPort: Int) {
-    Testnet(0, "testnet", 280_000, "testnet.lightwalletd.com", 9067),
-    Mainnet(1, "mainnet", 419_200, "mainnet.lightwalletd.com", 9067);
+enum class ZcashNetwork(val id: Int, val networkName: String, val networkType: String, val saplingActivationHeight: Int, val defaultHost: String, val defaultPort: Int) {
+    Testnet(0, "testnet", "test", 280_000, "testnet.lightwalletd.com", 9067),
+    Mainnet(1, "mainnet", "main", 419_200, "mainnet.lightwalletd.com", 9067),
+    Piratenet(2, "piratenet", "main", 152_855, "lightd.pirate.black", 443);
 
     companion object {
         fun from(id: Int) = values().first { it.id == id }

@@ -51,18 +51,18 @@ protobuf-codegen-pure = "2.14"
 #zcash_proofs = { git = 'https://github.com/zcash/librustzcash.git', rev='04a2bd4ad86980e0c2862706bd402b85b9dd1965' }
 
 ## Uncomment this to test librustzcash changes locally
-#[patch.crates-io]
-#zcash_client_backend = { path = '../../clones/librustzcash/zcash_client_backend' }
-#zcash_client_sqlite = { path = '../../clones/librustzcash/zcash_client_sqlite' }
-#zcash_primitives = { path = '../../clones/librustzcash/zcash_primitives' }
-#zcash_proofs = { path = '../../clones/librustzcash/zcash_proofs' }
+# [patch.crates-io]
+# zcash_client_backend = { path = '../../librustzcash/zcash_client_backend' }
+# zcash_client_sqlite = { path = '../../librustzcash/zcash_client_sqlite' }
+# zcash_primitives = { path = '../../librustzcash/zcash_primitives' }
+# zcash_proofs = { path = '../../librustzcash/zcash_proofs' }
 
 # Uncomment this to test someone else's librustzcash changes in a branch
 [patch.crates-io]
-zcash_client_backend = {git = "https://github.com/gmale/librustzcash", branch = "autoshield-poc-daa-taddr3"}
-zcash_client_sqlite = {git = "https://github.com/gmale/librustzcash", branch = "autoshield-poc-daa-taddr3"}
-zcash_primitives = {git = "https://github.com/gmale/librustzcash", branch = "autoshield-poc-daa-taddr3"}
-zcash_proofs = {git = "https://github.com/gmale/librustzcash", branch = "autoshield-poc-daa-taddr3"}
+zcash_client_backend = {git = "https://github.com/piratenetwork/librustzcash", branch = "multicoin_sdk"}
+zcash_client_sqlite = {git = "https://github.com/piratenetwork/librustzcash", branch = "multicoin_sdk"}
+zcash_primitives = {git = "https://github.com/piratenetwork/librustzcash", branch = "multicoin_sdk"}
+zcash_proofs = {git = "https://github.com/piratenetwork/librustzcash", branch = "multicoin_sdk"}
 
 [features]
 mainnet = ["zcash_client_sqlite/mainnet"]

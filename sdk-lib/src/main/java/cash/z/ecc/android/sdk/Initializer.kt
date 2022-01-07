@@ -152,7 +152,7 @@ class Initializer private constructor(
          * connect to lightwalletd. In most cases, the default host is sufficient but an override
          * can be provided. The host cannot be changed without explicitly setting the network.
          *
-         * @param network the Zcash network to use. Either testnet or mainnet.
+         * @param network the Zcash network to use. Either testnet, mainnet, piratenet.
          * @param host the lightwalletd host to use.
          * @param port the lightwalletd port to use.
          */
@@ -259,7 +259,7 @@ class Initializer private constructor(
          * Sets the network from a network id, throwing an exception if the id is not recognized.
          *
          * @param networkId the ID of the network corresponding to the [ZcashNetwork] enum.
-         * Typically, it is 0 for testnet and 1 for mainnet.
+         * Typically, it is 0 for testnet and 1 for mainnet and 2 for piratenet.
          */
         fun setNetworkId(networkId: Int): Config = apply {
             network = ZcashNetwork.from(networkId)

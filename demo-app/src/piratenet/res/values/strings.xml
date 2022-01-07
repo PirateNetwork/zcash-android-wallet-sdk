@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Piratenet Demo</string>
+    <string name="nav_header_title">Android SDK Demo : PIRATENET</string>
+    <string name="network_name">Piratenet</string>
+</resources>

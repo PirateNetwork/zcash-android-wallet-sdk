@@ -32,6 +32,12 @@ android {
             applicationId = "cash.z.ecc.android.sdk.demoapp.mainnet"
             matchingFallbacks.addAll(listOf("zcashmainnet", "release"))
         }
+
+        create("piratenet") {
+            dimension = "network"
+            applicationId = "cash.z.ecc.android.sdk.demoapp.piratenet"
+            matchingFallbacks.addAll(listOf("mainnet", "release"))
+        }
     }
 
     buildTypes {

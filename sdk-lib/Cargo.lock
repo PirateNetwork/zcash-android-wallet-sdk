@@ -497,7 +497,7 @@ dependencies = [
 [[package]]
 name = "equihash"
 version = "0.1.0"
-source = "git+https://github.com/gmale/librustzcash?branch=autoshield-poc-daa-taddr3#bd65b01eb3131f24baab54a7d8e0c05affbc621e"
+source = "git+https://github.com/piratenetwork/librustzcash?branch=multicoin_sdk#468e874584b0b61001c51da89b30d62098163ae2"
 dependencies = [
  "blake2b_simd",
  "byteorder",
@@ -2005,7 +2005,7 @@ dependencies = [
 [[package]]
 name = "zcash_client_backend"
 version = "0.5.0"
-source = "git+https://github.com/gmale/librustzcash?branch=autoshield-poc-daa-taddr3#bd65b01eb3131f24baab54a7d8e0c05affbc621e"
+source = "git+https://github.com/piratenetwork/librustzcash?branch=multicoin_sdk#468e874584b0b61001c51da89b30d62098163ae2"
 dependencies = [
  "base64 0.13.0",
  "bech32",
@@ -2034,7 +2034,7 @@ dependencies = [
 [[package]]
 name = "zcash_client_sqlite"
 version = "0.3.0"
-source = "git+https://github.com/gmale/librustzcash?branch=autoshield-poc-daa-taddr3#bd65b01eb3131f24baab54a7d8e0c05affbc621e"
+source = "git+https://github.com/piratenetwork/librustzcash?branch=multicoin_sdk#468e874584b0b61001c51da89b30d62098163ae2"
 dependencies = [
  "bech32",
  "bs58",
@@ -2053,7 +2053,7 @@ dependencies = [
 [[package]]
 name = "zcash_note_encryption"
 version = "0.0.0"
-source = "git+https://github.com/gmale/librustzcash?branch=autoshield-poc-daa-taddr3#bd65b01eb3131f24baab54a7d8e0c05affbc621e"
+source = "git+https://github.com/piratenetwork/librustzcash?branch=multicoin_sdk#468e874584b0b61001c51da89b30d62098163ae2"
 dependencies = [
  "blake2b_simd",
  "byteorder",
@@ -2067,7 +2067,7 @@ dependencies = [
 [[package]]
 name = "zcash_primitives"
 version = "0.5.0"
-source = "git+https://github.com/gmale/librustzcash?branch=autoshield-poc-daa-taddr3#bd65b01eb3131f24baab54a7d8e0c05affbc621e"
+source = "git+https://github.com/piratenetwork/librustzcash?branch=multicoin_sdk#468e874584b0b61001c51da89b30d62098163ae2"
 dependencies = [
  "aes",
  "bitvec 0.18.5",
@@ -2097,7 +2097,7 @@ dependencies = [
 [[package]]
 name = "zcash_proofs"
 version = "0.5.0"
-source = "git+https://github.com/gmale/librustzcash?branch=autoshield-poc-daa-taddr3#bd65b01eb3131f24baab54a7d8e0c05affbc621e"
+source = "git+https://github.com/piratenetwork/librustzcash?branch=multicoin_sdk#468e874584b0b61001c51da89b30d62098163ae2"
 dependencies = [
  "bellman",
  "blake2b_simd",
